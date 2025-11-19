@@ -76,7 +76,7 @@ def add_note_submit():
         return redirect("/prijava/")
 
     note_text = request.args.get("note")
-
+    note_text = note_text.replace("<", "janez").replace(">","marko")
     conn = sqlite3.connect("test.db")
     cursor = conn.cursor()
     insert_command = 'INSERT INTO notes(username, note_text) VALUES("'+username+'", "'+note_text+'")'
